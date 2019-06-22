@@ -8,10 +8,8 @@ export default {
     colorWhite: 'rgba(255, 255, 255, 1)',
 
     // Typography
-    fontSize: 17,
-    fontSizeMedium: 23,
-    fontSizeLarge: 34,
-    fontSizeDisplay: 47,
+    fontSize: 17,    
+    fontSizeDisplay: 34,
 
     // Layout
     margin: 30,

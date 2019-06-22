@@ -10,10 +10,14 @@ import OnBoardingBottomTab from '../components/OnBoardingBottomTab'
  * On Boarding screen
  */
 import OnBoarding1 from '../screens/OnBoarding/OnBoarding1';
+import OnBoarding2 from '../screens/OnBoarding/OnBoarding2';
 
 const OnBoardingStack = createStackNavigator({
     OnBoarding1: {
         screen: OnBoarding1   
+    },
+    OnBoarding2: {
+        screen: OnBoarding2
     }
 }, {
     defaultNavigationOptions: {

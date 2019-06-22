@@ -1,6 +1,6 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 
-import OnBoarding from './OnBoardingStack'
+import OnBoarding from './OnBoardingNavigation'
 
 export default createAppContainer(
     createSwitchNavigator({

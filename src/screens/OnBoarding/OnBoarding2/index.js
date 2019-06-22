@@ -6,19 +6,20 @@ import styles from './style'
 import theme from '@styled/theme'
 import { Title, Text } from '@styled/components'
 
-const OnBoarding1 = props => (
+const OnBoarding2 = props => (
     <ScrollView style={styles.scrollView}>
         <ThemeProvider theme={theme}>
             <View style={styles.container}>
-                <Image source={require('@assets/images/woman-notebook.png')} style={styles.image} resizeMode="contain" />
-                <Title center style={styles.title}>Create a project</Title>
+                <Image source={require('@assets/images/man-looking.png')} style={styles.image} resizeMode="contain" />
+                <Title center style={styles.title}>Receive proposals</Title>
                 <Text center>
-                    Describe your needs for the project you want. Cause every 
-                    client is unique.
+                    Contractors will find your project
+                    and contact you to supply the
+                    needs for your project
                 </Text>
             </View>
         </ThemeProvider>
     </ScrollView>
 )
 
-export default OnBoarding1
+export default OnBoarding2
