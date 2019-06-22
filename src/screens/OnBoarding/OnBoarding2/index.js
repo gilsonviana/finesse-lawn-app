@@ -2,6 +2,8 @@ import React from 'react'
 import { ScrollView, View, Image } from 'react-native'
 import { ThemeProvider } from 'styled-components'
 
+import Dots from '../../../components/Dots'
+
 import styles from './style'
 import theme from '@styled/theme'
 import { Title, Text } from '@styled/components'
@@ -17,6 +19,7 @@ const OnBoarding2 = props => (
                     and contact you to supply the
                     needs for your project
                 </Text>
+                <Dots amount={3} current={2}/>
             </View>
         </ThemeProvider>
     </ScrollView>
