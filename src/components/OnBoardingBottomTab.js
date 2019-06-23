@@ -2,19 +2,23 @@
  * Custom bottom navigation component
  */
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import { ThemeProvider } from 'styled-components'
 
 import theme from '@styled/theme'
+import { Text } from '@styled/components'
 
 const OnBoardingBottomTab = props => (
-    <View style={styles.container}>
-        <TouchableOpacity>
-            <Text style={styles.buttonTitle}>Register</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-            <Text style={styles.buttonTitle}>Sign In</Text>
-        </TouchableOpacity>
-    </View>
+    <ThemeProvider theme={theme}>
+        <View style={styles.container}>
+            <TouchableOpacity>
+                <Text secondary uppercase bold style={styles.buttonTitle}>Register</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+                <Text secondary uppercase bold style={styles.buttonTitle}>Sign In</Text>
+            </TouchableOpacity>
+        </View>
+    </ThemeProvider>
 )
 
 const styles = StyleSheet.create({
@@ -27,7 +31,6 @@ const styles = StyleSheet.create({
         paddingRight: theme.margin,        
     },
     buttonTitle: {
-        textTransform: 'uppercase',
         paddingVertical: theme.margin / 2,        
     }
 })
