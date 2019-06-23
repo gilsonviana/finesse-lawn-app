@@ -10,14 +10,11 @@ import theme from '@styled/theme'
 import { Title, Text } from '@styled/components'
 
 const OnBoarding2 = props => {
-    const handleSwipeLeft = () => props.navigation.navigate('OnBoarding3')
-
-    const handleSwipeRight = () => props.navigation.navigate('OnBoarding1')
+    const handleSwipeRight = () => props.navigation.navigate('OnBoarding2')
 
     return (
         <GestureRecognizer
             onSwipeRight={() => handleSwipeRight()}
-            onSwipeLeft={() => handleSwipeLeft()}
             config={{
                 velocityThreshold: 0.3,
                 directionalOffsetThreshold: 80
@@ -26,14 +23,12 @@ const OnBoarding2 = props => {
             <ScrollView style={styles.scrollView}>
                 <ThemeProvider theme={theme}>
                     <View style={styles.container}>
-                        <Image source={require('@assets/images/man-looking.png')} style={styles.image} resizeMode="contain" />
-                        <Title center style={styles.title}>Receive proposals</Title>
+                        <Image source={require('@assets/images/house-lawn.png')} style={styles.image} resizeMode="contain" />
+                        <Title center style={styles.title}>Get service</Title>
                         <Text center>
-                            Contractors will find your project
-                            and contact you to supply the
-                            needs for your project
+                            Relax and enjoy!
                         </Text>
-                        <Dots amount={3} current={2}/>
+                        <Dots amount={3} current={3}/>
                     </View>
                 </ThemeProvider>
             </ScrollView>

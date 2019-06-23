@@ -11,6 +11,8 @@ import OnBoardingBottomTab from '../components/OnBoardingBottomTab'
  */
 import OnBoarding1 from '../screens/OnBoarding/OnBoarding1';
 import OnBoarding2 from '../screens/OnBoarding/OnBoarding2';
+import OnBoarding3 from '../screens/OnBoarding/OnBoarding3';
+
 
 const OnBoardingStack = createStackNavigator({
     OnBoarding1: {
@@ -18,6 +20,9 @@ const OnBoardingStack = createStackNavigator({
     },
     OnBoarding2: {
         screen: OnBoarding2
+    },
+    OnBoarding3: {
+        screen: OnBoarding3
     }
 }, {
     defaultNavigationOptions: {
