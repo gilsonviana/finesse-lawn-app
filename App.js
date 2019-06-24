@@ -3,7 +3,7 @@ import { AppLoading } from 'expo'
 import * as Font from 'expo-font'
 import { Asset } from 'expo-asset'
 
-import AppNavigation from './src/navigation/AppNavigation'
+import AppNavigation from './src/navigation/'
 
 class App extends Component {
 	constructor(props) {
@@ -12,7 +12,7 @@ class App extends Component {
 		this.state = {
 			isLoading: true
 		}
-	}
+	}s
 
 	_loadResourcesAsync = async () => {
 		return Promise.all([
