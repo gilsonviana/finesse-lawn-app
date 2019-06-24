@@ -11,7 +11,8 @@
                 ],
                 "alias": {
                     "@styled": "./src/styled",
-                    "@assets": "./assets"
+                    "@assets": "./assets",
+                    "@components": "./src/components"
                 }
             }
         ]

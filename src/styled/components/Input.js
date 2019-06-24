@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { TouchableWithoutFeedback } from 'react-native'
 import styled from 'styled-components/native'
 import PropTypes from 'prop-types'
@@ -20,7 +20,7 @@ const Container = styled.View`
     shadow-offset: 0px 1px;
     shadow-opacity: 0.22;
     shadow-radius: 10;
-    elevation: 4;
+    elevation: 2;
 `
 
 const Label = styled.Text`    
@@ -35,16 +35,11 @@ const TextInput = styled.TextInput`
     flex: 2;
 `
 
-const Input = props => {
-    const [isActive, setIsActive] = useState(false)    
-
+const Input = props => {    
     /**
-     * Handle the active state
+     * Set input focus
      */
-    const handleOnPress = () => {
-        setIsActive(! isActive)         
-        input.focus()       
-    }
+    const handleOnPress = () => input.focus()       
 
     return(
         <TouchableWithoutFeedback onPress={() => handleOnPress()}>
