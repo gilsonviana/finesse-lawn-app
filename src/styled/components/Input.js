@@ -45,7 +45,11 @@ const Input = props => {
         <TouchableWithoutFeedback onPress={() => handleOnPress()}>
             <Container {...props}>
                 <Label>{props.label}</Label>
-                <TextInput ref={(node) => input = node} onChangeText={(text) => props.handleChangeEvent(text)}/>
+                <TextInput 
+                    ref={(node) => input = node} 
+                    onChangeText={(text) => props.handleChangeEvent(text, props.name)}
+                    autoCapitalize={(props.autoCapitalize) ? 'none' : 'sentences'} 
+                    secureTextEntry={(props.secureTextEntry) ? true : false}/>
             </Container>
         </TouchableWithoutFeedback>
     )

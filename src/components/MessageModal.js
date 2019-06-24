@@ -12,7 +12,7 @@ const MessageModal = props => {
         <Modal style={styles.modal} isVisible={props.modalVisibility}>
             <ThemeProvider theme={theme}>
                 <View>
-                    <Text>FAIL</Text>
+                    <Text style={styles.text}>{props.message}</Text>
                     <Button handlePressEvent={() => props.handleDismissEvent()}>Close</Button>
                 </View>
             </ThemeProvider>
@@ -21,16 +21,21 @@ const MessageModal = props => {
 }
 
 const styles = StyleSheet.create({
-    modal: {
+    modal: {        
         paddingTop: theme.fontSize * 4,
         paddingBottom: theme.fontSize,
         paddingHorizontal: theme.fontSize * 2,
         backgroundColor: theme.colorWhite,
-        borderRadius: theme.fontSize
+        borderRadius: theme.fontSize,
+        flexDirection: 'column'
+    }, 
+    text: {
+        paddingBottom: theme.fontSize * 2,
     }
 })
 
 MessageModal.propTypes = {
+    message: PropTypes.string.isRequired,
     modalVisibility: PropTypes.bool.isRequired,
     handleDismissEvent: PropTypes.func.isRequired
 }

@@ -4,46 +4,54 @@ import { connect } from 'react-redux'
 import MessageModal from '@components/MessageModal'
 import { ThemeProvider } from 'styled-components'
 
-import { signUpByEmail } from '@redux/actions'
+import { finishSignUp } from '@redux/actions'
 import theme from '@styled/theme'
-import { Title, Text, Input, Button, Link, GoogleButton } from '@styled/components'
+import { Title, Text, Input, Button, Link } from '@styled/components'
 
 import style from './style'
 
 const SignUpEmail = props => {
-    const [submitButton, setSubmitButton] = useState(false)
-    const [emailInput,setEmailInput] = useState('')
+    const [formValues, setFormValues] = useState({
+        firstName: '',
+        lastName: '',
+        password: ''
+    })
+    const [submitButton, setSubmitButton] = useState(false)    
     const [modalVisibility, setModalVisibility] = useState(false)
     const [modalMessage, setModalMessage] = useState('')
 
     /**
      * Update the state
      * 
-     * @param {String} text 
+     * @param {String} text user typed value
+     * @param {String} field reference for form  
      */
-    const handleChangeEvent = (text) => {
-        setEmailInput(text)
+    const handleChangeEvent = (text, field) => {
+        setFormValues({
+            ...formValues,
+            [field]: text
+        })
     }
 
     /**
-     * Submit user email
+     * Submit form
      */
     const handleSubmitEvent = () => {
-        setSubmitButton(true)
-        props.signUpByEmail(emailInput, _submitOnSucess, _submiOnFail)
+        const userEmail = props.navigation.getParam('email')
+        setSubmitButton(true)        
+        props.finishSignUp(userEmail, formValues, _submitOnSucess, _submiOnFail)
     }
 
     const _submitOnSucess = () => {
-        setSubmitButton(false)
-        props.navigation.navigate('SignUpName', {
-            email: emailInput
-        })
+        setSubmitButton(false) // TODO change to navigate
+        console.log('sucess')
     }
 
     const _submiOnFail = (error) => {
         setSubmitButton(false)
         setModalMessage(error)
         setModalVisibility(true)
+        console.log('fail')
     }
 
     /**
@@ -62,19 +70,29 @@ const SignUpEmail = props => {
                         <Text style={style.lead}>
                             Create your profile and have
                             contractors at your fingertips
-                        </Text>
-                        <GoogleButton style={style.googleBtn}/>
-                        <Text center style={style.helpText}>Or continue with email</Text>
+                        </Text>                                                
                         <Input 
                             handleChangeEvent={handleChangeEvent} 
-                            label="Email"
+                            name="firstName"
+                            label="First name"
                             autoCapitalize={true} />
+                        <Input 
+                            style={style.inputMargin}
+                            handleChangeEvent={handleChangeEvent} 
+                            name="lastName"
+                            label="Last name"
+                            autoCapitalize={true} />
+                        <Input 
+                            handleChangeEvent={handleChangeEvent} 
+                            name="password"
+                            label="Password"
+                            autoCapitalize={true}
+                            secureTextEntry={true} />
                         <Button 
                             handlePressEvent={handleSubmitEvent} 
-                            style={style.signUpBtn}
+                            style={style.continueBtn}
                             isDisabled={submitButton}
-                            isLoading={submitButton}>Sign Up</Button>
-                        <Link center bold secondary>Already have an account?</Link>                        
+                            isLoading={submitButton}>Continue</Button>                                              
                     </View>
                 </ThemeProvider>
             </KeyboardAvoidingView>            
@@ -88,7 +106,7 @@ const SignUpEmail = props => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        signUpByEmail
+        finishSignUp
     }
 }
 

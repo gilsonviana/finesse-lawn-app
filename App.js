@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { AppLoading } from 'expo'
 import * as Font from 'expo-font'
 import { Asset } from 'expo-asset'
+import { Provider } from 'react-redux'
 
+import store from '@redux/store'
 import AppNavigation from './src/navigation/'
 
 class App extends Component {
@@ -48,7 +50,11 @@ class App extends Component {
 			)
 		}
 
-		return <AppNavigation />
+		return (
+			<Provider store={store}>
+				<AppNavigation />
+			</Provider>
+		)
 	}
 }
 

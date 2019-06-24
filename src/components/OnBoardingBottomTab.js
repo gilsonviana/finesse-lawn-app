@@ -11,7 +11,7 @@ import { Text } from '@styled/components'
 const OnBoardingBottomTab = props => (
     <ThemeProvider theme={theme}>
         <View style={styles.container}>
-            <TouchableOpacity onPress={() => props.navigation.navigate('SignUp')}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('SignUpEmail')}>
                 <Text secondary uppercase bold style={styles.buttonTitle}>Register</Text>
             </TouchableOpacity>
             <TouchableOpacity>
