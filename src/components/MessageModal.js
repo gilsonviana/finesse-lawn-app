@@ -9,14 +9,18 @@ import { Text, Button } from '@styled/components'
 
 const MessageModal = props => {
     return(
-        <Modal style={styles.modal} isVisible={props.modalVisibility}>
+        <View>
             <ThemeProvider theme={theme}>
-                <View>
-                    <Text style={styles.text}>{props.message}</Text>
-                    <Button handlePressEvent={() => props.handleDismissEvent()}>Close</Button>
-                </View>
+                <Modal 
+                    style={styles.modal} 
+                    isVisible={props.modalVisibility}>                    
+                    <View>
+                        <Text style={styles.text}>{props.message}</Text>
+                        <Button handlePressEvent={() => props.handleDismissEvent()}>Close</Button>
+                    </View>
+                </Modal>
             </ThemeProvider>
-        </Modal>
+        </View>
     )
 }
 
@@ -27,7 +31,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: theme.fontSize * 2,
         backgroundColor: theme.colorWhite,
         borderRadius: theme.fontSize,
-        flexDirection: 'column'
+        flexDirection: 'column',        
     }, 
     text: {
         paddingBottom: theme.fontSize * 2,

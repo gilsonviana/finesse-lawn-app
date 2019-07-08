@@ -62,7 +62,7 @@ const SignUpEmail = props => {
     }
 
     return(
-        <ScrollView style={style.scrollView}>
+        <ScrollView style={style.scrollView} keyboardShouldPersistTaps="always">
             <KeyboardAvoidingView behavior="position" enabled>
                 <ThemeProvider theme={theme}>
                     <View style={style.container}>
